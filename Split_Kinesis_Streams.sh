@@ -25,3 +25,4 @@ until [[ $SHARD_STATE = ACTIVE ]]; do
         echo -ne "."
         SHARD_STATE=$(aws kinesis describe-stream --stream-name $STREAM_NAME --query StreamDescription.StreamStatus | sed 's/\"//g')
 done
+echo -e "\tOK"
